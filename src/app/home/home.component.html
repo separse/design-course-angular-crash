@@ -6,3 +6,28 @@
     {{ clickCounter }} times.
   </p>
 </div>
+
+<!-- <div class="play-container" [ngStyle]="{
+    'background': clickCounter > 4 ? 'green' : 'red',
+    'border': clickCounter > 4 ? 'solid 2px blue' : 'solid 2px yellow'
+  }"> -->
+
+<div class="play-container"  [ngClass]="clickCounter>4 ? 'greenBlue' : 'redYellow'">
+
+  <ng-template [ngIf]="clickCounter > 4" [ngIfElse]="lessFour">
+    <p>mor than <strong>Four Times</strong> has clicked</p>
+  </ng-template>
+
+  <ng-template #lessFour>
+    <p>less than <strong>Four Times</strong> has been clicked</p>
+  </ng-template>
+
+</div>
+
+<div class="play-container">
+  <p>
+    <input type="text" [(ngModel)]="name" />
+    <br />
+    <strong>you said {{ name }}</strong>
+  </p>
+</div>
